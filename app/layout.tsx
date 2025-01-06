@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {ReactNode} from "react";
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import {ReactQueryClientProvider} from "@/components/ReactQueryClientProvider";
+import { ReactNode } from "react";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { ReactQueryClientProvider } from "@/components/ReactQueryClientProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,16 +26,14 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-      <ReactQueryClientProvider>
-          <html lang="en" className="min-h-dvh h-full">
-              <body
-                  className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh h-full flex flex-col`}
-              >
-                  <AppRouterCacheProvider>
-                      {children}
-                  </AppRouterCacheProvider>
-              </body>
-          </html>
-      </ReactQueryClientProvider>
+    <ReactQueryClientProvider>
+      <html lang="en" className="min-h-dvh h-full">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh h-full flex flex-col`}
+        >
+          <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+        </body>
+      </html>
+    </ReactQueryClientProvider>
   );
 }
