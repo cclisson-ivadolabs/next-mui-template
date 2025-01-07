@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <html lang="en" className="min-h-dvh h-full">
+      <html lang="en" className="min-h-dvh h-full bg-white text-gray-900">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh h-full flex flex-col`}
         >
