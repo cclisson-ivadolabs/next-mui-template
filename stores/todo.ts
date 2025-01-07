@@ -1,18 +1,21 @@
-import {useQuery} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { Query } from "@/types/query";
 
 export const useTodos = () => {
-    const { data, error, isLoading } = useQuery({
-        queryKey: ["todos"],
-        queryFn: async () => {
-            const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-            const data = await response.json();
+  const { data: todos, isLoading } = useQuery({
+    queryKey: [Query.TODOS],
+    queryFn: async () => {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos",
+      );
+      const data = await response.json();
 
-            return data as { id: number; title: string }[];
-        }
-    });
+      return data as { id: number; title: string }[];
+    },
+  });
 
-    return {
-        todos: data,
-        isLoading
-    };
-}
+  return {
+    todos,
+    isLoading,
+  };
+};
