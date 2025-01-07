@@ -56,12 +56,7 @@ export default function DashboardLayout({ children }: Props) {
         <div className="w-64">
           <List
             component="nav"
-            aria-labelledby="nested-list-subheader"
-            subheader={
-              <ListSubheader component="div" id="nested-list-subheader">
-                Nested List Items
-              </ListSubheader>
-            }
+            subheader={<ListSubheader>Nested List Items</ListSubheader>}
           >
             <ListItemButton onClick={() => router.push("/dashboard/emails")}>
               <ListItemIcon>

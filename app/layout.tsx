@@ -27,9 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <html lang="en" className="min-h-dvh h-full bg-white text-gray-900">
+      <html lang="en" className="min-h-dvh h-full">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh h-full flex flex-col`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh h-full flex flex-col bg-white text-gray-900`}
         >
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
         </body>
