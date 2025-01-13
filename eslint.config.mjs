@@ -1,10 +1,11 @@
 // @ts-check
 
 import { FlatCompat } from "@eslint/eslintrc";
+import prettierPlugin from "eslint-plugin-prettier/recommended";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 import tseslint from "typescript-eslint";
-import prettierPlugin from "eslint-plugin-prettier/recommended";
 
 const compat = new FlatCompat({
   // import.meta.dirname is available after Node.js v20.11.0
@@ -28,11 +29,17 @@ const eslintConfig = [
   }),
   prettierPlugin,
   {
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
     rules: {
       "react/jsx-curly-brace-presence": [
         "error",
         { props: "never", children: "ignore" },
       ],
+
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
     },
   },
 ];
